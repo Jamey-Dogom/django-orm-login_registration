@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app_lr/css/style2.css' %}">
+
+    <title>User Page</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+</head>
+
+<body>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-black border-bottom box-shadow">
+        <h5 class="my-0 mr-md-auto font-weight-normal wh">CodingDojo Wall (Simplified)</h5>
+        <nav class="my-2 my-md-0 mr-md-3 mgb">
+            <a class="p-2 text-light">Welcome {{fn}}!</a>
+        </nav>
+        <a class="btn btn-light" href="logout">Logout</a>
+    </div>
+    <div class="container">
+
+            <div class="row">
+                    <div class="col-lg-6 mgt">
+                      <h3 class = "tac"># of Messages</h3>
+                      <hr>
+                   
+                    </div>
+                    <div class="col-lg-6 mgt">
+                        <h3 class = "tac">Send A Message</h3>
+                        <hr>
+                        
+                      
+                    </div>
+
+
+                  </div>
+
+</body>
+
+
+</html>
+
