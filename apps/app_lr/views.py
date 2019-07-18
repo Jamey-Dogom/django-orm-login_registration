@@ -43,7 +43,7 @@ def login(request):
             request.session['user_id']= usr.id 
             request.session['logged_in'] = True
 
-            return redirect('/success')
+            return redirect('/wall')
 
         else:
             messages.error(request, "Bad credentials")  

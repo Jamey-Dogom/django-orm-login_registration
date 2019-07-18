@@ -52,3 +52,28 @@ class User(models.Model):
 
     def __str__(self):
         return stringify_obj(self)
+
+class Message(models.Model):
+    message = models.CharField(max_length = 500)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __repr__(self):
+        return stringify_obj(self)
+
+    def __str__(self):
+        return stringify_obj(self)
+
+class Comment(models.Model):
+    comment = models.CharField(max_length = 500)
+    message = models.ForeignKey(Message, on_delete = models.CASCADE)
+    user = models.ForeignKey(User, on_delete = models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __repr__(self):
+        return stringify_obj(self)
+
+    def __str__(self):
+        return stringify_obj(self)
+
+    
