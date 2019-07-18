@@ -23,9 +23,13 @@ def create_user(request):
         request.session['user_id']= new_user.id 
         request.session['logged_in'] = True
 
+        all_messages = Message.objects.all()
+
         context = {
+            "id": new_user.id,
             "fn": new_user.first_name,
-            "ln": new_user.last_name
+            "ln": new_user.last_name,
+            "all_messages": all_messages,
         }
 
         return render(request, "app_lr/success.html", context)
@@ -59,13 +63,37 @@ def success(request):
 
     in_usr = User.objects.filter(id = request.session['user_id'])
     usr = in_usr[0]
+
+    all_messages = Message.objects.all()
+    all_comments = Comment.objects.all()
+
     context = {
+        "id": usr.id,
         "fn": usr.first_name,
-        "ln": usr.last_name 
+        "ln": usr.last_name,
+        "all_messages": all_messages,
+        "all_comments": all_comments,
         }
     return render(request, "app_lr/success.html", context)     
 
 def logout(request):
     request.session.clear()
     return redirect('/')
+
+def add_msg(request):
+    messenger = User.objects.get(id = request.session['user_id'])
+    Message.objects.create(message = request.POST['msg'], user = messenger)
+    return redirect('/wall')
+
+def add_cm(request, msg_id):
+    mg = Message.objects.get(id = msg_id)
+    messenger = User.objects.get(id = request.session['user_id'])
+    Comment.objects.create(comment = request.POST['cm'], message = mg, user = messenger)
+
+    return redirect('/wall')
+
+def delete(request, cm_id):
+    cmt = Comment.objects.get(id = cm_id)
+    cmt.delete()
+    return redirect('/wall')
 

@@ -35,3 +35,15 @@
     vertical-align: top;
     margin-top: -24%;
 }
+
+.mv {
+    margin-left: 85%;
+}
+
+.message-box{
+    border: 2px solid black;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
